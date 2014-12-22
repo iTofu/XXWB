@@ -54,6 +54,7 @@
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:XXOAuthAuthorizeURL]];
     [self.webView loadRequest:request];
+    XXLog(@"--%@", request.URL);
 }
 
 #pragma mark - UIWebViewDelegate method

@@ -13,7 +13,10 @@
 @protocol XXTabBarViewDelegate <NSObject>
 
 @optional
+
 - (void)tabBarView:(XXTabBarView *)tabBarView didSelectedButtonFrom:(int)from to:(int)to;
+
+- (void)tabBarViewSendStatus:(XXTabBarView *)tabBarView;
 
 @end
 

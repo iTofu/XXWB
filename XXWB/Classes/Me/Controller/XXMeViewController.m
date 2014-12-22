@@ -31,6 +31,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
 }
 
+/**
+ *  注销
+ */
 - (void)logout:(UIBarButtonItem *)item
 {
     NSFileManager *manager = [NSFileManager defaultManager];

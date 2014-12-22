@@ -16,7 +16,11 @@
 #import "XXAccount.h"
 #import "XXStatus.h"
 #import "XXUser.h"
-//#import "UIImageView+WebCache.h"
+#import "NSString+LCExtend.h"
+#import "UIImageView+WebCache.h"
+#import "XXStatusCell.h"
+#import "MBProgressHUD+LC.h"
+#import "XXStatusFrame.h"
 
 @interface XXHomeViewController ()
 
@@ -25,7 +29,7 @@
  */
 @property (nonatomic, assign, getter = isTitleOpen) BOOL titleOpen;
 
-@property (nonatomic, strong) NSArray *statuses;
+@property (nonatomic, strong) NSArray *statusFrames;
 
 @end
 
@@ -47,6 +51,10 @@
  */
 - (void)setupStatuses
 {
+    // HUD
+    [MBProgressHUD showMessage:@"正在努力加载中...."];
+    
+    // Net
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *pars = [NSMutableDictionary dictionary];
@@ -55,11 +63,26 @@
     [manager GET:XXHomeStatus
       parameters:pars
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             self.statuses = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+             NSArray *statusArray = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+             
+             NSMutableArray *statusFrameArray = [NSMutableArray array];
+             for (XXStatus *status in statusArray) {
+                 XXStatusFrame *statusFrame = [[XXStatusFrame alloc] init];
+                 statusFrame.status = status;
+                 [statusFrameArray addObject:statusFrame];
+             }
+             self.statusFrames = statusFrameArray;
+             
              [self.tableView reloadData];
+             
+             [MBProgressHUD hideHUD];
+             //[MBProgressHUD showSuccess:@"加载成功"];
     }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              XXLog(@"error: %@", error.localizedDescription);
+             
+             [MBProgressHUD hideHUD];
+             //[MBProgressHUD showError:@"加载失败"];
     }];
 }
 
@@ -75,9 +98,8 @@
     NSString *title = @"小小梦想家哟";
     [titleButton setTitle:title forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSFontAttributeName] = [UIFont fontWithName:@"HelveticaNeue" size:XXTitleButtonSize];
-    CGSize titleSize = [title sizeWithAttributes:attributes];
+    
+    CGSize titleSize = [title sizeWithFontSize:XXTitleButtonSize];
     titleButton.bounds = CGRectMake(0, 0, titleSize.width + titleButton.imageView.bounds.size.width + 5, 30);
     [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
@@ -102,29 +124,29 @@
 - (void)pop
 {
     XXLog(@"小小微博--pop");
+    
+    [self setupStatuses];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"status";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    XXStatusCell *cell = [XXStatusCell cellWithTableView:tableView];
     
-    XXStatus *status = self.statuses[indexPath.row];
-    cell.textLabel.text = status.text;
-    cell.detailTextLabel.text = status.user.name;
-    //[cell.imageView setImageWithURL:[NSURL URLWithString:status.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted@3x"]];
+    cell.statusFrame = self.statusFrames[indexPath.row];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.statusFrames[indexPath.row] cellHeight];
 }
 
 @end

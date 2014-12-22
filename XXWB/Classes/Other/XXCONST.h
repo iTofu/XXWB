@@ -18,9 +18,10 @@
 // 获取RGB颜色
 #define XXColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
+// 首页微博接口
 #define XXHomeStatus @"https://api.weibo.com/2/statuses/home_timeline.json"
 
-// 多行尺寸的计算
-// CGRect frame = [self.titleLabel.text boundingRectWithSize:CGSizeMake(10.0, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:XXBadgeButtonTitleSize]} context:nil];
+// 发送微博接口
+#define XXUpdateStatus @"https://api.weibo.com/2/statuses/update.json"
 
 #endif

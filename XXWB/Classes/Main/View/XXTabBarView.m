@@ -37,11 +37,22 @@
         [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+        [button addTarget:self action:@selector(sendStatus) forControlEvents:UIControlEventTouchUpInside];
         button.bounds = CGRectMake(0, 0, button.currentBackgroundImage.size.width, button.currentBackgroundImage.size.height);
         [self addSubview:button];
         self.addButton = button;
     }
     return self;
+}
+
+/**
+ *  发微博
+ */
+- (void)sendStatus
+{
+    if ([self.delegate respondsToSelector:@selector(tabBarViewSendStatus:)]) {
+        [self.delegate tabBarViewSendStatus:self];
+    }
 }
 
 /**

@@ -13,6 +13,7 @@
 #import "XXMeViewController.h"
 #import "XXTabBarView.h"
 #import "XXNavigationController.h"
+#import "XXSendStatusViewController.h"
 
 @interface XXTabBarController () <XXTabBarViewDelegate>
 
@@ -53,6 +54,14 @@
 {
     // 切换控制器
     self.selectedIndex = to;
+}
+
+- (void)tabBarViewSendStatus:(XXTabBarView *)tabBarView
+{
+    XXSendStatusViewController *sendStatus = [[XXSendStatusViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:sendStatus];
+    sendStatus.title = @"发微博";
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark -
