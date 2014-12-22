@@ -14,7 +14,10 @@
 
 @interface XXSendStatusViewController () <UITextViewDelegate>
 
+/** 新微博输入框 */
 @property (nonatomic, weak) UITextView *inputView;
+/** 发送按钮 */
+@property (nonatomic, weak) UIBarButtonItem *rightBtn;
 
 @end
 
@@ -26,11 +29,11 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // 设置文本框
-    [self setupInputView];
-    
     // 设置导航栏按钮
     [self setupBarButtonItem];
+    
+    // 设置文本框
+    [self setupInputView];
 }
 
 /**
@@ -41,8 +44,11 @@
     UITextView *inputView = [[UITextView alloc] init];
     inputView.delegate = self;
     inputView.frame = self.view.bounds;
+    inputView.font = [UIFont systemFontOfSize:14.0];
     [self.view addSubview:inputView];
     self.inputView = inputView;
+    
+    [self textViewDidChange:inputView];
 }
 
 /**
@@ -55,6 +61,7 @@
     
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
     self.navigationItem.rightBarButtonItem = right;
+    self.rightBtn = right;
 }
 
 /**
@@ -88,14 +95,22 @@
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               [MBProgressHUD hideHUD];
               [MBProgressHUD showSuccess:@"发送成功"];
+              
               [self dismissViewControllerAnimated:YES completion:nil];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              XXLog(@"error: %@", error.localizedDescription);
-              
               [MBProgressHUD hideHUD];
-              [MBProgressHUD showError:@"发送失败"];
+              [MBProgressHUD showSuccess:@"发送失败"];
+              
+              XXLog(@"error: %@", error.localizedDescription);
           }];
+}
+
+#pragma mark - UITextViewDelegate method
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.rightBtn.enabled = textView.text.length > 0;
 }
 
 @end

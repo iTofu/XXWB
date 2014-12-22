@@ -197,7 +197,8 @@
     self.originalView.frame = statusFrame.originalViewF;
     
     // 头像
-    [self.iconView setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
+                     placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     self.iconView.frame = statusFrame.iconViewF;
     
     // 昵称
@@ -228,7 +229,8 @@
     // 配图
     if (status.thumbnail_pic) {
         self.photoView.hidden = NO;
-        [self.photoView setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic]
+                          placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
         self.photoView.frame = statusFrame.photoViewF;
     } else {
         self.photoView.hidden = YES;
@@ -246,7 +248,7 @@
     // 转发微博
     if (status.retweeted_status) {
         self.retweetView.hidden = NO;
-        //self.retweetView.frame = statusFrame.retweetViewF;
+        self.retweetView.frame = statusFrame.retweetViewF;
         
         // 昵称
         NSString *name = [NSString stringWithFormat:@"@%@", status.retweeted_status.user.name];
@@ -258,7 +260,8 @@
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;
         
         // 配图
-        [self.retweetPhotoView setImageWithURL:[NSURL URLWithString:status.retweeted_status.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:status.retweeted_status.thumbnail_pic]
+                                 placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
         self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
         
     } else {

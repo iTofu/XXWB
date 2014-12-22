@@ -18,10 +18,16 @@
 {
     // 设置BarButtonItem
     UIBarButtonItem *item = [UIBarButtonItem appearance];
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSForegroundColorAttributeName] = XXColor(239, 116, 8);
-    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:15.0];
-    [item setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    NSMutableDictionary *normal = [NSMutableDictionary dictionary];
+    normal[NSForegroundColorAttributeName] = XXColor(239, 116, 8);
+    normal[NSFontAttributeName] = [UIFont systemFontOfSize:15.0];
+    [item setTitleTextAttributes:normal forState:UIControlStateNormal];
+    
+    NSMutableDictionary *disabled = [NSMutableDictionary dictionary];
+    disabled[NSForegroundColorAttributeName] = XXColor(111, 111, 111);
+    disabled[NSFontAttributeName] = [UIFont systemFontOfSize:15.0];
+    [item setTitleTextAttributes:disabled forState:UIControlStateDisabled];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

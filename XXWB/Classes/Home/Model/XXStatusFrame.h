@@ -11,7 +11,7 @@
 // 间距
 #define XXStatusPadding 10
 // 昵称字体
-#define XXStatusNameFont 15
+#define XXStatusNameFont 14
 // 时间字体
 #define XXStatusTimeFont 10
 // 来源字体

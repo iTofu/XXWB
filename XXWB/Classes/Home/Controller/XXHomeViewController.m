@@ -63,6 +63,10 @@
     [manager GET:XXHomeStatus
       parameters:pars
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             // HUD
+             [MBProgressHUD hideHUD];
+             [MBProgressHUD showSuccess:@"加载成功"];
+             
              NSArray *statusArray = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
              
              NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -74,15 +78,13 @@
              self.statusFrames = statusFrameArray;
              
              [self.tableView reloadData];
-             
-             [MBProgressHUD hideHUD];
-             //[MBProgressHUD showSuccess:@"加载成功"];
     }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             XXLog(@"error: %@", error.localizedDescription);
-             
+             // HUD
              [MBProgressHUD hideHUD];
-             //[MBProgressHUD showError:@"加载失败"];
+             [MBProgressHUD showError:@"加载失败"];
+             
+             XXLog(@"error: %@", error.localizedDescription);
     }];
 }
 

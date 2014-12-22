@@ -61,13 +61,15 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [MBProgressHUD showMessage:@"正在努力加载中...."];
+    // HUD
+    [MBProgressHUD showMessage:@"网络连接中...."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    // HUD
     [MBProgressHUD hideHUD];
-    [MBProgressHUD showSuccess:@"加载成功"];
+    [MBProgressHUD showSuccess:@"网络连接成功"];
     
     NSString *urlString = webView.request.URL.absoluteString;
     
@@ -82,13 +84,14 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    // HUD
     [MBProgressHUD hideHUD];
-    [MBProgressHUD showError:@"加载失败"];
+    [MBProgressHUD showError:@"网络连接失败"];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    XXLog(@"当前请求网址: %@", request.URL);
+    XXLog(@"RequestURL: %@", request.URL);
     
     // 获取code后
     NSString *urlString = request.URL.absoluteString;
@@ -132,13 +135,16 @@
               // 存储账号模型
               [XXAccountTool saveAccount:account];
               
-              // 切换控制器: 新特征\首页
+              // HUD
               [MBProgressHUD hideHUD];
               [MBProgressHUD showSuccess:@"登录成功"];
               
+              // 切换控制器: 新特征\首页
               [XXWeiboTool chooseRootViewController];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              [MBProgressHUD hideHUD];
+              
               XXLog(@"请求失败: %@", error);
     }];
 }

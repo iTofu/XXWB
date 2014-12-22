@@ -74,7 +74,7 @@
     if (status.thumbnail_pic) {
         CGFloat photoX = iconXY;
         CGFloat photoY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
-        CGFloat photoWH = 60;
+        CGFloat photoWH = 80;
         _photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
         
         originalH = CGRectGetMaxY(_photoViewF) + XXStatusPadding;
@@ -84,13 +84,13 @@
     // 8. 转发微博
     if (status.retweeted_status) {
         // 0. 父控件
-        CGFloat retweetX = iconXY;
+        CGFloat retweetX = iconXY + XXStatusPadding;
         CGFloat retweetY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
         CGFloat retweetW = contentMaxW;
         
         // 1. 昵称
-        CGFloat retNameX = retweetX + XXStatusPadding;
-        CGFloat retNameY = retweetY + XXStatusPadding;
+        CGFloat retNameX = 0;
+        CGFloat retNameY = 0;
         NSString *name = [NSString stringWithFormat:@"@%@", status.retweeted_status.user.name];
         CGSize retNameSize = [name sizeWithFont:[UIFont systemFontOfSize:XXStatusNameFont]];
         _retweetNameBtnF = (CGRect){retNameX, retNameY, retNameSize};
@@ -108,8 +108,8 @@
         if (status.retweeted_status.thumbnail_pic) {
             CGFloat retPhotoX = retContentX;
             CGFloat retPhotoY = CGRectGetMaxY(_retweetContentLabelF) + XXStatusPadding;
-            CGFloat retPhotoWH = 60;
-            _retweetPhotoViewF = (CGRect){retPhotoX, retPhotoY, retPhotoWH};
+            CGFloat retPhotoWH = 80;
+            _retweetPhotoViewF = (CGRect){retPhotoX, retPhotoY, retPhotoWH, retPhotoWH};
             
             retweetH = CGRectGetMaxY(_retweetPhotoViewF) + XXStatusPadding;
         }
