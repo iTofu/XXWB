@@ -39,7 +39,7 @@
         CGFloat badgeW = self.currentBackgroundImage.size.width;
         CGFloat badgeH = self.currentBackgroundImage.size.height;
         // 文字尺寸
-        CGSize titleSize = [badgeValue sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:XXBadgeButtonTitleSize]}];
+        CGSize titleSize = [badgeValue sizeWithFont:[UIFont systemFontOfSize:XXBadgeButtonTitleSize]];
         frame.size.width = MAX(badgeW, titleSize.width + 10);
         frame.size.height = badgeH;
         self.frame = frame;

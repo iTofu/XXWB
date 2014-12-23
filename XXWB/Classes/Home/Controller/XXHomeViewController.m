@@ -63,9 +63,11 @@
     [manager GET:XXHomeStatus
       parameters:pars
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             // HUD
-             [MBProgressHUD hideHUD];
-             [MBProgressHUD showSuccess:@"加载成功"];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // HUD
+                 [MBProgressHUD hideHUD];
+                 [MBProgressHUD showSuccess:@"加载成功"];
+             });
              
              NSArray *statusArray = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
              

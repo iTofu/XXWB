@@ -93,8 +93,10 @@
     [manager POST:XXUpdateStatus
        parameters:pars
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [MBProgressHUD hideHUD];
-              [MBProgressHUD showSuccess:@"发送成功"];
+              dispatch_async(dispatch_get_main_queue(), ^{
+                  [MBProgressHUD hideHUD];
+                  [MBProgressHUD showSuccess:@"发送成功"];
+              });
               
               [self dismissViewControllerAnimated:YES completion:nil];
           }

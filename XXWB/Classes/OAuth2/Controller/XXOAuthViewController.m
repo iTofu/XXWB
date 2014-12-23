@@ -129,15 +129,17 @@
     [manager POST:XXOAuthAccessTokenURL
        parameters:paramenters
           success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+              dispatch_async(dispatch_get_main_queue(), ^{
+                  // HUD
+                  [MBProgressHUD hideHUD];
+                  [MBProgressHUD showSuccess:@"登录成功"];
+              });
+              
               // 账号模型
               XXAccount *account = [XXAccount accountWithDict:responseObject];
               
               // 存储账号模型
               [XXAccountTool saveAccount:account];
-              
-              // HUD
-              [MBProgressHUD hideHUD];
-              [MBProgressHUD showSuccess:@"登录成功"];
               
               // 切换控制器: 新特征\首页
               [XXWeiboTool chooseRootViewController];
