@@ -16,7 +16,9 @@
 @property (nonatomic, copy) NSString *profile_image_url;
 /** 用户昵称 */
 @property (nonatomic, copy) NSString *name;
-/** 用户是否vip */
-@property (nonatomic, assign, getter = isVip) BOOL vip;
+/** vip类型 */
+@property (nonatomic, assign) int mbtype;
+/** vip等级 */
+@property (nonatomic, assign) int mbrank;
 
 @end

@@ -80,6 +80,8 @@
     // HUD
     [MBProgressHUD showMessage:@"正在发送中...."];
     
+    [self.view endEditing:YES];
+    
     // [self.inputView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
     NSString *newStatus = self.inputView.text;
     

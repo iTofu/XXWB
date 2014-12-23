@@ -39,6 +39,10 @@
 {
     [super viewDidLoad];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = XXColor(226, 226, 226);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, XXStatusPadding * 0.5, 0);
+    
     // 设置tabBarItem
     [self setupTabBarItem];
     
@@ -130,6 +134,7 @@
     XXLog(@"小小微博--pop");
     
     [self setupStatuses];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - Table view data source

@@ -19,8 +19,8 @@
     
     XXUser *user = status.user;
     
-    // 屏幕宽度
-    CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
+    // cell宽度
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - XXStatusPadding;
     
     // 0. 原创微博父控件
     CGFloat originalW = cellW;
@@ -39,9 +39,7 @@
     _nameBtnF = (CGRect){nameX, nameY, nameSize};
     
     // 3. 会员
-#warning isVip
-    user.vip = YES;
-    if (user.isVip) {
+    if (user.mbtype > 0) {
         CGFloat vipX = CGRectGetMaxX(_nameBtnF) + XXStatusPadding;
         CGFloat vipY = nameY;
         CGFloat vipW = 14;
@@ -63,7 +61,7 @@
     
     // 6. 正文
     CGFloat contentX = iconXY;
-    CGFloat contentY = MAX(CGRectGetMaxY(_iconViewF), CGRectGetMaxY(_timeLabelF)) + XXStatusPadding * 0.5;
+    CGFloat contentY = MAX(CGRectGetMaxY(_iconViewF), CGRectGetMaxY(_timeLabelF)) + XXStatusPadding;
     CGFloat contentMaxW = cellW - 2 * XXStatusPadding;
     CGSize contentSize = [status.text sizeWithFont:[UIFont systemFontOfSize:XXStatusContentFont] constrainedToSize:CGSizeMake(contentMaxW, MAXFLOAT)];
     _contentLabelF = (CGRect){contentX, contentY, contentSize};
@@ -84,20 +82,20 @@
     // 8. 转发微博
     if (status.retweeted_status) {
         // 0. 父控件
-        CGFloat retweetX = iconXY + XXStatusPadding;
-        CGFloat retweetY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
+        CGFloat retweetX = iconXY;
+        CGFloat retweetY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding * 0.8;
         CGFloat retweetW = contentMaxW;
         
         // 1. 昵称
-        CGFloat retNameX = 0;
-        CGFloat retNameY = 0;
+        CGFloat retNameX = XXStatusPadding;
+        CGFloat retNameY = XXStatusPadding;
         NSString *name = [NSString stringWithFormat:@"@%@", status.retweeted_status.user.name];
         CGSize retNameSize = [name sizeWithFont:[UIFont systemFontOfSize:XXStatusNameFont]];
         _retweetNameBtnF = (CGRect){retNameX, retNameY, retNameSize};
         
         // 2. 正文
         CGFloat retContentX = retNameX;
-        CGFloat retContentY = CGRectGetMaxY(_retweetNameBtnF) + XXStatusPadding;
+        CGFloat retContentY = CGRectGetMaxY(_retweetNameBtnF) + XXStatusPadding * 0.5;
         CGFloat retContentMaxW = retweetW - 2 * XXStatusPadding;
         CGSize retContentSize = [status.retweeted_status.text sizeWithFont:[UIFont systemFontOfSize:XXStatusContentFont] constrainedToSize:CGSizeMake(retContentMaxW, MAXFLOAT)];
         _retweetContentLabelF = (CGRect){retContentX, retContentY, retContentSize};
@@ -121,15 +119,22 @@
     
     _originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
-    _cellHeight = originalH;
-    
     // 9. 微博工具条
+    CGFloat toolX = originalX;
+    CGFloat toolY = originalH;
+    CGFloat toolW = originalW;
+    CGFloat toolH = 35;
+    _statusToolBarF = CGRectMake(toolX, toolY, toolW, toolH);
     
     // 10. 转发
     
     // 11. 评论
     
     // 12. 表态
+    
+    
+    // cell的高度
+    _cellHeight = CGRectGetMaxY(_statusToolBarF) + XXStatusPadding * 0.5;
 }
 
 @end

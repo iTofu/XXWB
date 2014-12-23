@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3124AA51A499FCB0091EC2B /* NSDate+LCExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */; };
 		B31F8A5E1A4463ED00C6BE12 /* XXSendStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F8A5D1A4463ED00C6BE12 /* XXSendStatusViewController.m */; };
 		B359C8D51A42CE6400670C7B /* XXOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C8D41A42CE6400670C7B /* XXOAuthViewController.m */; };
 		B359C9081A42D69F00670C7B /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C8F61A42D69F00670C7B /* AFHTTPRequestOperation.m */; };
@@ -95,6 +96,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3124AA31A499FCB0091EC2B /* NSDate+LCExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LCExtend.h"; sourceTree = "<group>"; };
+		B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LCExtend.m"; sourceTree = "<group>"; };
 		B31F8A5C1A4463ED00C6BE12 /* XXSendStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXSendStatusViewController.h; sourceTree = "<group>"; };
 		B31F8A5D1A4463ED00C6BE12 /* XXSendStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXSendStatusViewController.m; sourceTree = "<group>"; };
 		B359C8D31A42CE6400670C7B /* XXOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXOAuthViewController.h; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				B3A1B4771A3F174F001952D0 /* UIBarButtonItem+Extend.m */,
 				B3C241451A4431D300B12826 /* NSString+LCExtend.h */,
 				B3C241461A4431D300B12826 /* NSString+LCExtend.m */,
+				B3124AA31A499FCB0091EC2B /* NSDate+LCExtend.h */,
+				B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				B36812BD1A404B7500FDE8A2 /* XXNewfeatureViewController.m in Sources */,
 				B359C90B1A42D69F00670C7B /* AFNetworkReachabilityManager.m in Sources */,
 				B359C90F1A42D69F00670C7B /* AFURLResponseSerialization.m in Sources */,
+				B3124AA51A499FCB0091EC2B /* NSDate+LCExtend.m in Sources */,
 				B359C90E1A42D69F00670C7B /* AFURLRequestSerialization.m in Sources */,
 				B3C241411A44240F00B12826 /* XXStatusFrame.m in Sources */,
 				B38EBF511A48535C0072C15E /* SDWebImageDecoder.m in Sources */,
