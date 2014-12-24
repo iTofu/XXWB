@@ -161,7 +161,6 @@
     // 0. 转发微博父控件
     UIImageView *retweetView = [[UIImageView alloc] init];
     retweetView.image = [UIImage resizedImageWithName:@"timeline_retweet_background" width:0.9 height:0.5];
-    retweetView.highlightedImage = [UIImage resizedImageWithName:@"timeline_retweet_background_highlighted"];
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
     

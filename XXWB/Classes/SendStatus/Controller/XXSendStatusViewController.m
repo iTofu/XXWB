@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "XXAccountTool.h"
 #import "XXAccount.h"
-#import "MBProgressHUD+LC.h"
+#import "SVProgressHUD.h"
 
 @interface XXSendStatusViewController () <UITextViewDelegate>
 
@@ -78,7 +78,8 @@
 - (void)send
 {
     // HUD
-    [MBProgressHUD showMessage:@"正在发送中...."];
+    [SVProgressHUD showWithStatus:@"正在加载...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
     
     [self.view endEditing:YES];
     
@@ -95,16 +96,12 @@
     [manager POST:XXUpdateStatus
        parameters:pars
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              dispatch_async(dispatch_get_main_queue(), ^{
-                  [MBProgressHUD hideHUD];
-                  [MBProgressHUD showSuccess:@"发送成功"];
-              });
+              [SVProgressHUD showSuccessWithStatus:@"加载成功"];
               
               [self dismissViewControllerAnimated:YES completion:nil];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [MBProgressHUD hideHUD];
-              [MBProgressHUD showSuccess:@"发送失败"];
+              [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
               
               XXLog(@"error: %@", error.localizedDescription);
           }];

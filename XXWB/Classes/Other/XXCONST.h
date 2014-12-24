@@ -24,4 +24,8 @@
 // 发送微博接口
 #define XXUpdateStatus @"https://api.weibo.com/2/statuses/update.json"
 
+// OAuth2认证相关
+#define XXOAuthAuthorizeURL @"https://api.weibo.com/oauth2/authorize?client_id=3041370356&redirect_uri=http://www.baidu.com"
+#define XXOAuthAccessTokenURL @"https://api.weibo.com/oauth2/access_token"
+
 #endif

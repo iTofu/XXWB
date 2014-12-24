@@ -47,10 +47,14 @@
  */
 - (void)setSource:(NSString *)source
 {
-    int location = [source rangeOfString:@">"].location + 1;
-    int length = [source rangeOfString:@"</"].location - location;
-    
-    _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:NSMakeRange(location, length)]];
+    if (source.length) {
+        int location = [source rangeOfString:@">"].location + 1;
+        int length = [source rangeOfString:@"</"].location - location;
+        
+        _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:NSMakeRange(location, length)]];
+    } else {
+        _source = @"未知来源";
+    }
 }
 
 @end

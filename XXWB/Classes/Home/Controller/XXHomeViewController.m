@@ -19,8 +19,8 @@
 #import "NSString+LCExtend.h"
 #import "UIImageView+WebCache.h"
 #import "XXStatusCell.h"
-#import "MBProgressHUD+LC.h"
 #import "XXStatusFrame.h"
+#import "SVProgressHUD.h"
 
 @interface XXHomeViewController ()
 
@@ -56,24 +56,23 @@
 - (void)setupStatuses
 {
     // HUD
-    [MBProgressHUD showMessage:@"正在努力加载中...."];
+    [SVProgressHUD showWithStatus:@"正在刷新...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
     
     // Net
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *pars = [NSMutableDictionary dictionary];
     pars[@"access_token"] = [XXAccountTool account].access_token;
+    pars[@"count"] = @30;
     
     [manager GET:XXHomeStatus
       parameters:pars
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 // HUD
-                 [MBProgressHUD hideHUD];
-                 [MBProgressHUD showSuccess:@"加载成功"];
-             });
+             [SVProgressHUD showSuccessWithStatus:@"刷新成功"];
              
              NSArray *statusArray = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+             XXLog(@"%@", responseObject[@"statuses"]);
              
              NSMutableArray *statusFrameArray = [NSMutableArray array];
              for (XXStatus *status in statusArray) {
@@ -86,9 +85,7 @@
              [self.tableView reloadData];
     }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             // HUD
-             [MBProgressHUD hideHUD];
-             [MBProgressHUD showError:@"加载失败"];
+             [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
              
              XXLog(@"error: %@", error.localizedDescription);
     }];

@@ -22,9 +22,9 @@
 		B359C9131A42D7AD00670C7B /* XXAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C9121A42D7AD00670C7B /* XXAccount.m */; };
 		B359C9161A42DACB00670C7B /* XXWeiboTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C9151A42DACB00670C7B /* XXWeiboTool.m */; };
 		B359C9191A42DB6200670C7B /* XXAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C9181A42DB6200670C7B /* XXAccountTool.m */; };
-		B359C9201A42DF5800670C7B /* MBProgressHUD+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C91C1A42DF5800670C7B /* MBProgressHUD+LC.m */; };
-		B359C9211A42DF5800670C7B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B359C91D1A42DF5800670C7B /* MBProgressHUD.bundle */; };
-		B359C9221A42DF5800670C7B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C91F1A42DF5800670C7B /* MBProgressHUD.m */; };
+		B35C20191A4A9604007AC980 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35C20141A4A9604007AC980 /* SVIndefiniteAnimatedView.m */; };
+		B35C201A1A4A9604007AC980 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B35C20161A4A9604007AC980 /* SVProgressHUD.bundle */; };
+		B35C201B1A4A9604007AC980 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B35C20181A4A9604007AC980 /* SVProgressHUD.m */; };
 		B36812BD1A404B7500FDE8A2 /* XXNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B36812BC1A404B7500FDE8A2 /* XXNewfeatureViewController.m */; };
 		B38CE4FD1A3E9A7500EF4061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38CE4FC1A3E9A7400EF4061 /* Foundation.framework */; };
 		B38CE4FF1A3E9A7500EF4061 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38CE4FE1A3E9A7500EF4061 /* CoreGraphics.framework */; };
@@ -127,11 +127,12 @@
 		B359C9151A42DACB00670C7B /* XXWeiboTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXWeiboTool.m; sourceTree = "<group>"; };
 		B359C9171A42DB6200670C7B /* XXAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXAccountTool.h; sourceTree = "<group>"; };
 		B359C9181A42DB6200670C7B /* XXAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXAccountTool.m; sourceTree = "<group>"; };
-		B359C91B1A42DF5800670C7B /* MBProgressHUD+LC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LC.h"; sourceTree = "<group>"; };
-		B359C91C1A42DF5800670C7B /* MBProgressHUD+LC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LC.m"; sourceTree = "<group>"; };
-		B359C91D1A42DF5800670C7B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		B359C91E1A42DF5800670C7B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		B359C91F1A42DF5800670C7B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B35C20131A4A9604007AC980 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		B35C20141A4A9604007AC980 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		B35C20151A4A9604007AC980 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		B35C20161A4A9604007AC980 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		B35C20171A4A9604007AC980 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		B35C20181A4A9604007AC980 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		B36812BB1A404B7500FDE8A2 /* XXNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNewfeatureViewController.h; sourceTree = "<group>"; };
 		B36812BC1A404B7500FDE8A2 /* XXNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNewfeatureViewController.m; sourceTree = "<group>"; };
 		B38CE4F91A3E9A7400EF4061 /* XXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,9 +343,9 @@
 		B359C8D61A42D28300670C7B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B35C20121A4A9604007AC980 /* SVProgressHUD */,
 				B38EBF2B1A48535C0072C15E /* SDWebImage */,
 				B3BE5BAD1A43181200FB7C86 /* MJExtension */,
-				B359C91A1A42DF5800670C7B /* MBProgressHUD */,
 				B359C8F41A42D69F00670C7B /* AFNetworking */,
 			);
 			path = Lib;
@@ -376,16 +377,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		B359C91A1A42DF5800670C7B /* MBProgressHUD */ = {
+		B35C20121A4A9604007AC980 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				B359C91B1A42DF5800670C7B /* MBProgressHUD+LC.h */,
-				B359C91C1A42DF5800670C7B /* MBProgressHUD+LC.m */,
-				B359C91D1A42DF5800670C7B /* MBProgressHUD.bundle */,
-				B359C91E1A42DF5800670C7B /* MBProgressHUD.h */,
-				B359C91F1A42DF5800670C7B /* MBProgressHUD.m */,
+				B35C20131A4A9604007AC980 /* SVIndefiniteAnimatedView.h */,
+				B35C20141A4A9604007AC980 /* SVIndefiniteAnimatedView.m */,
+				B35C20151A4A9604007AC980 /* SVProgressHUD-Prefix.pch */,
+				B35C20161A4A9604007AC980 /* SVProgressHUD.bundle */,
+				B35C20171A4A9604007AC980 /* SVProgressHUD.h */,
+				B35C20181A4A9604007AC980 /* SVProgressHUD.m */,
 			);
-			path = MBProgressHUD;
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		B36812B71A404B5900FDE8A2 /* Newfeature */ = {
@@ -867,8 +869,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38CE5071A3E9A7500EF4061 /* InfoPlist.strings in Resources */,
+				B35C201A1A4A9604007AC980 /* SVProgressHUD.bundle in Resources */,
 				B38CE50F1A3E9A7500EF4061 /* Images.xcassets in Resources */,
-				B359C9211A42DF5800670C7B /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +899,6 @@
 				B38EBF4D1A48535C0072C15E /* MKAnnotationView+WebCache.m in Sources */,
 				B38CE5691A3ECE9100EF4061 /* UIImage+Extend.m in Sources */,
 				B3A1B4751A3F15D8001952D0 /* XXBarButton.m in Sources */,
-				B359C9221A42DF5800670C7B /* MBProgressHUD.m in Sources */,
 				B38CE5471A3E9B4E00EF4061 /* XXAppDelegate.m in Sources */,
 				B359C9161A42DACB00670C7B /* XXWeiboTool.m in Sources */,
 				B38EBF521A48535C0072C15E /* SDWebImageDownloader.m in Sources */,
@@ -910,11 +911,13 @@
 				B3BE5BC41A43181200FB7C86 /* MJMethod.m in Sources */,
 				B3BE5BC81A43181200FB7C86 /* NSObject+MJKeyValue.m in Sources */,
 				B3C2413E1A441E7300B12826 /* XXStatusCell.m in Sources */,
+				B35C201B1A4A9604007AC980 /* SVProgressHUD.m in Sources */,
 				B38EBF501A48535C0072C15E /* SDWebImageCompat.m in Sources */,
 				B359C90A1A42D69F00670C7B /* AFHTTPSessionManager.m in Sources */,
 				B38CE55D1A3EB1AF00EF4061 /* XXTabBarButton.m in Sources */,
 				B3BE5BC71A43181200FB7C86 /* NSObject+MJCoding.m in Sources */,
 				B38EBF4E1A48535C0072C15E /* NSData+ImageContentType.m in Sources */,
+				B35C20191A4A9604007AC980 /* SVIndefiniteAnimatedView.m in Sources */,
 				B38EBF5A1A48535C0072C15E /* UIImageView+HighlightedWebCache.m in Sources */,
 				B3BE5BC21A43181200FB7C86 /* MJIvar.m in Sources */,
 				B38EBF561A48535C0072C15E /* UIButton+WebCache.m in Sources */,
@@ -923,7 +926,6 @@
 				B3BE5BC61A43181200FB7C86 /* MJTypeEncoding.m in Sources */,
 				B3BE5BC11A43181200FB7C86 /* MJArgument.m in Sources */,
 				B3C9EA2E1A430ABB00374557 /* XXStatus.m in Sources */,
-				B359C9201A42DF5800670C7B /* MBProgressHUD+LC.m in Sources */,
 				B38CE54B1A3E9C8800EF4061 /* XXTabBarController.m in Sources */,
 				B3A1B47E1A3F2334001952D0 /* XXTitleButton.m in Sources */,
 				B3A1B47B1A3F1CE2001952D0 /* XXSearBar.m in Sources */,

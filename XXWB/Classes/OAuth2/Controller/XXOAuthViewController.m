@@ -11,10 +11,7 @@
 #import "XXAccount.h"
 #import "XXWeiboTool.h"
 #import "XXAccountTool.h"
-#import "MBProgressHUD+LC.h"
-
-#define XXOAuthAuthorizeURL @"https://api.weibo.com/oauth2/authorize?client_id=3041370356&redirect_uri=http://www.baidu.com"
-#define XXOAuthAccessTokenURL @"https://api.weibo.com/oauth2/access_token"
+#import "SVProgressHUD.h"
 
 @interface XXOAuthViewController () <UIWebViewDelegate>
 
@@ -62,14 +59,14 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     // HUD
-    [MBProgressHUD showMessage:@"网络连接中...."];
+    [SVProgressHUD showWithStatus:@"正在连接...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     // HUD
-    [MBProgressHUD hideHUD];
-    [MBProgressHUD showSuccess:@"网络连接成功"];
+    [SVProgressHUD showSuccessWithStatus:@"连接成功"];
     
     NSString *urlString = webView.request.URL.absoluteString;
     
@@ -85,8 +82,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     // HUD
-    [MBProgressHUD hideHUD];
-    [MBProgressHUD showError:@"网络连接失败"];
+    [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -129,11 +125,6 @@
     [manager POST:XXOAuthAccessTokenURL
        parameters:paramenters
           success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-              dispatch_async(dispatch_get_main_queue(), ^{
-                  // HUD
-                  [MBProgressHUD hideHUD];
-                  [MBProgressHUD showSuccess:@"登录成功"];
-              });
               
               // 账号模型
               XXAccount *account = [XXAccount accountWithDict:responseObject];
@@ -145,7 +136,6 @@
               [XXWeiboTool chooseRootViewController];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [MBProgressHUD hideHUD];
               
               XXLog(@"请求失败: %@", error);
     }];
