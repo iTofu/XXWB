@@ -38,6 +38,8 @@
 
 @implementation XXStatusTopView
 
+#pragma mark - 初始化
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

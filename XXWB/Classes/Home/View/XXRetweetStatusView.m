@@ -26,6 +26,8 @@
 
 @implementation XXRetweetStatusView
 
+#pragma mark - 初始化
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -54,6 +56,8 @@
     }
     return self;
 }
+
+#pragma mark - 设置数据
 
 - (void)setStatusFrame:(XXStatusFrame *)statusFrame
 {

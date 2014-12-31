@@ -140,7 +140,7 @@
     }
 }
 
-#pragma mark - 数据处理
+#pragma mark - 设置数据
 
 - (void)setStatus:(XXStatus *)status
 {
