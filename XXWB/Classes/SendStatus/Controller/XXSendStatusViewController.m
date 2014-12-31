@@ -11,6 +11,7 @@
 #import "XXAccountTool.h"
 #import "XXAccount.h"
 #import "SVProgressHUD.h"
+#import "UIButton+LCExtend.h"
 
 @interface XXSendStatusViewController () <UITextViewDelegate>
 
@@ -23,6 +24,20 @@
 
 @implementation XXSendStatusViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.inputView becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.view endEditing:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,20 +49,6 @@
     
     // 设置文本框
     [self setupInputView];
-}
-
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//    
-//    
-//}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [self.inputView becomeFirstResponder];
 }
 
 /**
@@ -121,7 +122,7 @@
           }];
 }
 
-#pragma mark - UITextViewDelegate method
+#pragma mark - UITextViewDelegate Method
 
 - (void)textViewDidChange:(UITextView *)textView
 {

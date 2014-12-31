@@ -10,6 +10,9 @@
 		B3086AC91A53BCFE00CACFDE /* XXRetweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086AC81A53BCFE00CACFDE /* XXRetweetStatusView.m */; };
 		B3086ACF1A53C06600CACFDE /* XXStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086ACE1A53C06600CACFDE /* XXStatusTopView.m */; };
 		B3086AD21A53D89800CACFDE /* XXPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086AD11A53D89800CACFDE /* XXPhoto.m */; };
+		B3086AD51A53EDFB00CACFDE /* XXPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086AD41A53EDFB00CACFDE /* XXPhotoView.m */; };
+		B3086AD81A53EFDB00CACFDE /* XXPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086AD71A53EFDB00CACFDE /* XXPhotosView.m */; };
+		B3086ADB1A540C2A00CACFDE /* UIButton+LCExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = B3086ADA1A540C2A00CACFDE /* UIButton+LCExtend.m */; };
 		B3124AA51A499FCB0091EC2B /* NSDate+LCExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */; };
 		B31F8A5E1A4463ED00C6BE12 /* XXSendStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F8A5D1A4463ED00C6BE12 /* XXSendStatusViewController.m */; };
 		B359C8D51A42CE6400670C7B /* XXOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B359C8D41A42CE6400670C7B /* XXOAuthViewController.m */; };
@@ -106,6 +109,12 @@
 		B3086ACE1A53C06600CACFDE /* XXStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXStatusTopView.m; sourceTree = "<group>"; };
 		B3086AD01A53D89800CACFDE /* XXPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXPhoto.h; sourceTree = "<group>"; };
 		B3086AD11A53D89800CACFDE /* XXPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXPhoto.m; sourceTree = "<group>"; };
+		B3086AD31A53EDFB00CACFDE /* XXPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXPhotoView.h; sourceTree = "<group>"; };
+		B3086AD41A53EDFB00CACFDE /* XXPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXPhotoView.m; sourceTree = "<group>"; };
+		B3086AD61A53EFDB00CACFDE /* XXPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXPhotosView.h; sourceTree = "<group>"; };
+		B3086AD71A53EFDB00CACFDE /* XXPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXPhotosView.m; sourceTree = "<group>"; };
+		B3086AD91A540C2A00CACFDE /* UIButton+LCExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCExtend.h"; sourceTree = "<group>"; };
+		B3086ADA1A540C2A00CACFDE /* UIButton+LCExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LCExtend.m"; sourceTree = "<group>"; };
 		B3124AA31A499FCB0091EC2B /* NSDate+LCExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LCExtend.h"; sourceTree = "<group>"; };
 		B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LCExtend.m"; sourceTree = "<group>"; };
 		B31F8A5C1A4463ED00C6BE12 /* XXSendStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXSendStatusViewController.h; sourceTree = "<group>"; };
@@ -533,6 +542,8 @@
 				B3C241461A4431D300B12826 /* NSString+LCExtend.m */,
 				B3124AA31A499FCB0091EC2B /* NSDate+LCExtend.h */,
 				B3124AA41A499FCB0091EC2B /* NSDate+LCExtend.m */,
+				B3086AD91A540C2A00CACFDE /* UIButton+LCExtend.h */,
+				B3086ADA1A540C2A00CACFDE /* UIButton+LCExtend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -619,6 +630,10 @@
 				B3086AC81A53BCFE00CACFDE /* XXRetweetStatusView.m */,
 				B3B703801A53A00E0083B658 /* XXStatusToolBar.h */,
 				B3B703811A53A00E0083B658 /* XXStatusToolBar.m */,
+				B3086AD31A53EDFB00CACFDE /* XXPhotoView.h */,
+				B3086AD41A53EDFB00CACFDE /* XXPhotoView.m */,
+				B3086AD61A53EFDB00CACFDE /* XXPhotosView.h */,
+				B3086AD71A53EFDB00CACFDE /* XXPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -930,10 +945,12 @@
 				B3086AC91A53BCFE00CACFDE /* XXRetweetStatusView.m in Sources */,
 				B359C9161A42DACB00670C7B /* XXWeiboTool.m in Sources */,
 				B38EBF521A48535C0072C15E /* SDWebImageDownloader.m in Sources */,
+				B3086AD81A53EFDB00CACFDE /* XXPhotosView.m in Sources */,
 				B38EBF531A48535C0072C15E /* SDWebImageDownloaderOperation.m in Sources */,
 				B38EBF571A48535C0072C15E /* UIImage+GIF.m in Sources */,
 				B3BE5BC91A43181200FB7C86 /* NSObject+MJMember.m in Sources */,
 				B359C90D1A42D69F00670C7B /* AFURLConnectionOperation.m in Sources */,
+				B3086ADB1A540C2A00CACFDE /* UIButton+LCExtend.m in Sources */,
 				B359C90C1A42D69F00670C7B /* AFSecurityPolicy.m in Sources */,
 				B3D57E2C1A503B6E009C8440 /* XXFailLoadBtn.m in Sources */,
 				B38F6A441A3EE9A6003E728E /* XXNavigationController.m in Sources */,
@@ -952,6 +969,7 @@
 				B38EBF561A48535C0072C15E /* UIButton+WebCache.m in Sources */,
 				B38CE54E1A3E9CFA00EF4061 /* XXHomeViewController.m in Sources */,
 				B3086AD21A53D89800CACFDE /* XXPhoto.m in Sources */,
+				B3086AD51A53EDFB00CACFDE /* XXPhotoView.m in Sources */,
 				B38EBF5B1A48535C0072C15E /* UIImageView+WebCache.m in Sources */,
 				B3BE5BC61A43181200FB7C86 /* MJTypeEncoding.m in Sources */,
 				B3BE5BC11A43181200FB7C86 /* MJArgument.m in Sources */,

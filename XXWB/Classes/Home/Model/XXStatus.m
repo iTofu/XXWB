@@ -25,6 +25,9 @@
 {
     // 获取微博发送时间 Fri May 09 16:30:34 +0800 2014
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [formatter setLocale:locale];
+    
     formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     NSDate *createdDate = [formatter dateFromString:_created_at];
     

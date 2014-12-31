@@ -12,6 +12,8 @@
 #import "XXUser.h"
 #import "UIImageView+WebCache.h"
 #import "XXPhoto.h"
+#import "XXPhotosView.h"
+#import "XXPhotoView.h"
 
 @interface XXRetweetStatusView ()
 
@@ -20,7 +22,7 @@
 /** 转发微博正文 */
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发微博配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) XXPhotosView *retweetPhotoView;
 
 @end
 
@@ -50,7 +52,7 @@
         self.retweetContentLabel = retweetContentLabel;
         
         // 3. 配图
-        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+        XXPhotosView *retweetPhotoView = [[XXPhotosView alloc] init];
         [self addSubview:retweetPhotoView];
         self.retweetPhotoView = retweetPhotoView;
     }
@@ -78,8 +80,8 @@
     if (retweetStatus.pic_urls.count) {
         self.retweetPhotoView.hidden = NO;
         
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:[retweetStatus.pic_urls[0] thumbnail_pic]]
-                                 placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.retweetPhotoView.photos = retweetStatus.pic_urls;
+        
         self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
     } else {
         self.retweetPhotoView.hidden = YES;

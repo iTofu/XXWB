@@ -10,6 +10,7 @@
 #import "XXStatus.h"
 #import "XXUser.h"
 #import "NSString+LCExtend.h"
+#import "XXPhotosView.h"
 
 @implementation XXStatusFrame
 
@@ -72,8 +73,8 @@
     if (status.pic_urls.count) {
         CGFloat photoX = iconXY;
         CGFloat photoY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
-        CGFloat photoWH = 80;
-        _photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGSize photoSize = [XXPhotosView sizeWithPhotosCount:status.pic_urls.count];
+        _photoViewF = CGRectMake(photoX, photoY, photoSize.width, photoSize.height);
         
         originalH = CGRectGetMaxY(_photoViewF) + XXStatusPadding;
     }
@@ -106,8 +107,8 @@
         if (status.retweeted_status.pic_urls.count) {
             CGFloat retPhotoX = retContentX;
             CGFloat retPhotoY = CGRectGetMaxY(_retweetContentLabelF) + XXStatusPadding;
-            CGFloat retPhotoWH = 80;
-            _retweetPhotoViewF = (CGRect){retPhotoX, retPhotoY, retPhotoWH, retPhotoWH};
+            CGSize retPhotoSize = [XXPhotosView sizeWithPhotosCount:status.retweeted_status.pic_urls.count];
+            _retweetPhotoViewF = (CGRect){retPhotoX, retPhotoY, retPhotoSize.width, retPhotoSize.height};
             
             retweetH = CGRectGetMaxY(_retweetPhotoViewF) + XXStatusPadding;
         }

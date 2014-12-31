@@ -13,6 +13,8 @@
 #import "UIImageView+WebCache.h"
 #import "XXRetweetStatusView.h"
 #import "XXPhoto.h"
+#import "XXPhotoView.h"
+#import "XXPhotosView.h"
 
 @interface XXStatusTopView ()
 
@@ -29,7 +31,7 @@
 /** 原创微博正文 */
 @property (nonatomic, weak) UILabel *contentLabel;
 /** 原创微博配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) XXPhotosView *photosView;
 
 /** 转发微博父控件 */
 @property (nonatomic, weak) XXRetweetStatusView *retweetView;
@@ -87,9 +89,9 @@
         self.contentLabel = contentLabel;
         
         // 7. 配图
-        UIImageView *photoView = [[UIImageView alloc] init];
-        [self addSubview:photoView];
-        self.photoView = photoView;
+        XXPhotosView *photosView = [[XXPhotosView alloc] init];
+        [self addSubview:photosView];
+        self.photosView = photosView;
         
         // 8. 初始化转发微博
         [self setupRetweetStatus];
@@ -159,12 +161,13 @@
     
     // 配图
     if (status.pic_urls.count) {
-        self.photoView.hidden = NO;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:[status.pic_urls[0] thumbnail_pic]]
-                          placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.photoView.frame = statusFrame.photoViewF;
+        self.photosView.hidden = NO;
+        
+        self.photosView.photos = status.pic_urls;
+        
+        self.photosView.frame = statusFrame.photoViewF;
     } else {
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
 #warning 测试账号id
