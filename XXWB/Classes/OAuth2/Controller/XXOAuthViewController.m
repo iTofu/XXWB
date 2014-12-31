@@ -12,21 +12,58 @@
 #import "XXWeiboTool.h"
 #import "XXAccountTool.h"
 #import "SVProgressHUD.h"
+#import "XXFailLoadBtn.h"
 
 @interface XXOAuthViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) UIWebView *webView;
+@property (nonatomic, weak) XXFailLoadBtn *failLoadBtn;
 
 @end
 
 @implementation XXOAuthViewController
 
+- (XXFailLoadBtn *)failLoadBtn
+{
+    if (_failLoadBtn == nil) {
+        XXFailLoadBtn *failLoadBtn = [[XXFailLoadBtn alloc] init];
+        failLoadBtn.center = CGPointMake(self.view.bounds.size.width * 0.5, self.view.bounds.size.height * 0.5);
+        [self.view addSubview:failLoadBtn];
+        [self.view bringSubviewToFront:failLoadBtn];
+        self.failLoadBtn = failLoadBtn;
+        XXLog(@"%@", NSStringFromCGRect(failLoadBtn.frame));
+    }
+    return _failLoadBtn;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.title = @"新浪账号授权";
+    
     // 添加webView
     [self setupWebView];
+    
+    // 添加刷新按钮
+    [self setupRefreshBtn];
+}
+
+/**
+ *  添加刷新按钮
+ */
+- (void)setupRefreshBtn
+{
+    UIBarButtonItem *refreshBtn = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleBordered target:self action:@selector(refresh)];
+    self.navigationItem.leftBarButtonItem = refreshBtn;
+}
+
+/**
+ *  刷新webView
+ */
+- (void)refresh
+{
+    [self.webView reload];
 }
 
 /**
@@ -59,7 +96,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     // HUD
-    [SVProgressHUD showWithStatus:@"正在连接...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"正在连接" maskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
 }
 
@@ -67,6 +104,9 @@
 {
     // HUD
     [SVProgressHUD showSuccessWithStatus:@"连接成功"];
+    
+    self.failLoadBtn.hidden = YES;
+    self.webView.hidden = NO;
     
     NSString *urlString = webView.request.URL.absoluteString;
     
@@ -83,6 +123,9 @@
 {
     // HUD
     [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    
+    self.failLoadBtn.hidden = NO;
+    self.webView.hidden = YES;
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -125,6 +168,8 @@
     [manager POST:XXOAuthAccessTokenURL
        parameters:paramenters
           success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+              // HUD
+              [SVProgressHUD showSuccessWithStatus:@"登录成功"];
               
               // 账号模型
               XXAccount *account = [XXAccount accountWithDict:responseObject];
@@ -136,7 +181,7 @@
               [XXWeiboTool chooseRootViewController];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              
+              [SVProgressHUD showErrorWithStatus:@"登录失败"];
               XXLog(@"请求失败: %@", error);
     }];
 }

@@ -36,6 +36,20 @@
     [self setupInputView];
 }
 
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    
+//    
+//}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.inputView becomeFirstResponder];
+}
+
 /**
  *  设置文本框
  */
@@ -78,7 +92,7 @@
 - (void)send
 {
     // HUD
-    [SVProgressHUD showWithStatus:@"正在加载...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"正在发送" maskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
     
     [self.view endEditing:YES];
@@ -96,12 +110,12 @@
     [manager POST:XXUpdateStatus
        parameters:pars
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [SVProgressHUD showSuccessWithStatus:@"加载成功"];
+              [SVProgressHUD showSuccessWithStatus:@"发送成功"];
               
               [self dismissViewControllerAnimated:YES completion:nil];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+              [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
               
               XXLog(@"error: %@", error.localizedDescription);
           }];

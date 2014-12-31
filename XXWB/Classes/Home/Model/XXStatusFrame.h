@@ -4,7 +4,7 @@
 //
 //  Created by 刘超 on 14/12/19.
 //  Copyright (c) 2014年 Leo. All rights reserved.
-//
+//  微博frame模型
 
 #import <Foundation/Foundation.h>
 

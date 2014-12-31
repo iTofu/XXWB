@@ -4,7 +4,7 @@
 //
 //  Created by 刘超 on 14/12/18.
 //  Copyright (c) 2014年 Leo. All rights reserved.
-//
+//  微博模型
 
 #import <Foundation/Foundation.h>
 
@@ -22,18 +22,18 @@
 @property (nonatomic, copy) NSString *source;
 /** 原创微博正文 */
 @property (nonatomic, copy) NSString *text;;
-/** 原创微博单张配图 */
-@property (nonatomic, copy) NSString *thumbnail_pic;;
+/** 原创微博配图 */
+@property (nonatomic, strong) NSArray *pic_urls;
 
 /** 被转发的微博 */
 @property (nonatomic, strong) XXStatus *retweeted_status ;
 
 /** 微博转发数 */
-@property (nonatomic, copy) NSString *reposts_count;
+@property (nonatomic, assign) int reposts_count;
 /** 微博评论数 */
-@property (nonatomic, copy) NSString *comments_count;
+@property (nonatomic, assign) int comments_count;
 /** 微博表态数 */
-@property (nonatomic, copy) NSString *attitudes_count ;
+@property (nonatomic, assign) int attitudes_count ;
 
 @end
 

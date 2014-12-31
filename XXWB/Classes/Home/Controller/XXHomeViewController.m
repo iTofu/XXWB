@@ -7,7 +7,6 @@
 //
 
 #import "XXHomeViewController.h"
-#import "XXBarButton.h"
 #import "UIBarButtonItem+Extend.h"
 #import "XXTitleButton.h"
 #import "MJExtension.h"
@@ -56,15 +55,15 @@
 - (void)setupStatuses
 {
     // HUD
-    [SVProgressHUD showWithStatus:@"正在刷新...." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"正在刷新" maskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
     
     // Net
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *pars = [NSMutableDictionary dictionary];
-    pars[@"access_token"] = [XXAccountTool account].access_token;
-    pars[@"count"] = @30;
+    pars[@"access_token"] = [XXAccountTool account].access_token; // 用户token
+    pars[@"count"] = @20; // 每页微博个数
     
     [manager GET:XXHomeStatus
       parameters:pars
@@ -72,7 +71,6 @@
              [SVProgressHUD showSuccessWithStatus:@"刷新成功"];
              
              NSArray *statusArray = [XXStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-             XXLog(@"%@", responseObject[@"statuses"]);
              
              NSMutableArray *statusFrameArray = [NSMutableArray array];
              for (XXStatus *status in statusArray) {
@@ -83,6 +81,7 @@
              self.statusFrames = statusFrameArray;
              
              [self.tableView reloadData];
+             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
@@ -131,7 +130,6 @@
     XXLog(@"小小微博--pop");
     
     [self setupStatuses];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - Table view data source

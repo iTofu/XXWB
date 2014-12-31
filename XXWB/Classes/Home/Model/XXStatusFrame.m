@@ -69,7 +69,7 @@
     CGFloat originalH = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
     
     // 7. 配图
-    if (status.thumbnail_pic) {
+    if (status.pic_urls.count) {
         CGFloat photoX = iconXY;
         CGFloat photoY = CGRectGetMaxY(_contentLabelF) + XXStatusPadding;
         CGFloat photoWH = 80;
@@ -103,7 +103,7 @@
         CGFloat retweetH = CGRectGetMaxY(_retweetContentLabelF) + XXStatusPadding;
         
         // 3. 配图
-        if (status.retweeted_status.thumbnail_pic) {
+        if (status.retweeted_status.pic_urls.count) {
             CGFloat retPhotoX = retContentX;
             CGFloat retPhotoY = CGRectGetMaxY(_retweetContentLabelF) + XXStatusPadding;
             CGFloat retPhotoWH = 80;

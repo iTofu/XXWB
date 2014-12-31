@@ -1,19 +1,17 @@
 //
-//  XXStatusCell.h
+//  XXRetweetStatusView.h
 //  XXWB
 //
-//  Created by 刘超 on 14/12/19.
+//  Created by Leo on 14-12-31.
 //  Copyright (c) 2014年 Leo. All rights reserved.
-//  微博cell
+//  微博cell内部topView内部的转发微博
 
 #import <UIKit/UIKit.h>
 
 @class XXStatusFrame;
 
-@interface XXStatusCell : UITableViewCell
+@interface XXRetweetStatusView : UIImageView
 
 @property (nonatomic, strong) XXStatusFrame *statusFrame;
-
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

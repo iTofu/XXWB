@@ -10,6 +10,7 @@
 #import "XXWeiboTool.h"
 #import "XXOAuthViewController.h"
 #import "XXAccountTool.h"
+#import "XXNavigationController.h"
 
 @implementation XXAppDelegate
 
@@ -25,8 +26,7 @@
         [XXWeiboTool chooseRootViewController];
     } else { // 没有登录账号
         XXOAuthViewController *oauth = [[XXOAuthViewController alloc] init];
-        oauth.title = @"新浪微博授权";
-        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:oauth];
+        self.window.rootViewController = [[XXNavigationController alloc] initWithRootViewController:oauth];
     }
     
     return YES;

@@ -8,8 +8,15 @@
 
 #import "XXStatus.h"
 #import "NSDate+LCExtend.h"
+#import "MJExtension.h"
+#import "XXPhoto.h"
 
 @implementation XXStatus
+
+- (NSDictionary *)objectClassInArray
+{
+    return @{@"pic_urls" :[XXPhoto class]};
+}
 
 /**
  *  修正微博的发送时间

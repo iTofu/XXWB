@@ -1,19 +1,17 @@
 //
-//  XXStatusCell.h
+//  XXStatusTopView.h
 //  XXWB
 //
-//  Created by 刘超 on 14/12/19.
+//  Created by Leo on 14-12-31.
 //  Copyright (c) 2014年 Leo. All rights reserved.
-//  微博cell
+//  微博cell内部的topView
 
 #import <UIKit/UIKit.h>
 
 @class XXStatusFrame;
 
-@interface XXStatusCell : UITableViewCell
+@interface XXStatusTopView : UIImageView
 
 @property (nonatomic, strong) XXStatusFrame *statusFrame;
-
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end
