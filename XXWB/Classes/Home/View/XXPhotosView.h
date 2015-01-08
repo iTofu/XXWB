@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSArray *photos;
 
 /**
- *  根据图片个数返回大小
+ *  根据图片个数返回photosView大小
  */
 + (CGSize)sizeWithPhotosCount:(int)count;
 

@@ -11,6 +11,7 @@
 #import "XXOAuthViewController.h"
 #import "XXAccountTool.h"
 #import "XXNavigationController.h"
+#import "UIImageView+WebCache.h"
 
 @implementation XXAppDelegate
 
@@ -30,6 +31,14 @@
     }
     
     return YES;
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    // 清除内存中的图片缓存
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager cancelAll];
+    [manager.imageCache clearMemory];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

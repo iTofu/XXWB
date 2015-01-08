@@ -96,14 +96,16 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     // HUD
-    [SVProgressHUD showWithStatus:@"正在连接" maskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
+    [SVProgressHUD showWithStatus:@"正在连接" maskType:SVProgressHUDMaskTypeClear];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     // HUD
     [SVProgressHUD showSuccessWithStatus:@"连接成功"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     self.failLoadBtn.hidden = YES;
     self.webView.hidden = NO;
@@ -123,6 +125,7 @@
 {
     // HUD
     [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     self.failLoadBtn.hidden = NO;
     self.webView.hidden = YES;
@@ -170,6 +173,7 @@
           success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
               // HUD
               [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
               
               // 账号模型
               XXAccount *account = [XXAccount accountWithDict:responseObject];
@@ -179,11 +183,13 @@
               
               // 切换控制器: 新特征\首页
               [XXWeiboTool chooseRootViewController];
-    }
+          }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               [SVProgressHUD showErrorWithStatus:@"登录失败"];
+              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+              
               XXLog(@"请求失败: %@", error);
-    }];
+          }];
 }
 
 @end

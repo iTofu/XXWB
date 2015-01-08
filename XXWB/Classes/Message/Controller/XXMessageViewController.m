@@ -54,7 +54,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = @"小小微博测试数据";
+    cell.textLabel.text = @"天王盖地虎";
     
     return cell;
 }

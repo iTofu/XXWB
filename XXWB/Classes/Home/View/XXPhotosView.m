@@ -9,6 +9,8 @@
 #import "XXPhotosView.h"
 #import "XXPhotoView.h"
 #import "XXPhoto.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 #define XXPhotoW 70
 #define XXPhotoH 70
@@ -25,10 +27,40 @@
             XXPhotoView *photoView = [[XXPhotoView alloc] init];
             photoView.tag = index; // tag
             photoView.userInteractionEnabled = YES;
+            [photoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)]];
             [self addSubview:photoView];
         }
     }
     return self;
+}
+
+/**
+ *  监听图片点击
+ */
+- (void)photoTap:(UITapGestureRecognizer *)tap
+{
+    int count = (int)self.photos.count;
+    // 1.封装图片数据
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i < count; i++) {
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        
+        // 图片路径
+        // 替换为中等尺寸图片
+        NSString *url = [[self.photos[i] thumbnail_pic] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        photo.url = [NSURL URLWithString:url];
+        
+        // 来源于哪个UIImageView
+        photo.srcImageView = self.subviews[i];
+        
+        [photos addObject:photo];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = tap.view.tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
 }
 
 - (void)setPhotos:(NSArray *)photos
@@ -67,7 +99,7 @@
 
 + (CGSize)sizeWithPhotosCount:(int)count
 {
-    // 一行最多有3列
+    // 一行最多3列
     int maxColumns = (count == 4) ? 2 : 3;
     
     // 总行数
@@ -81,12 +113,6 @@
     CGFloat photosW = cols * XXPhotoW + (cols - 1) * XXPhotoMargin;
     
     return CGSizeMake(photosW, photosH);
-    /**
-     一共60条数据 == count
-     一页10条 == size
-     总页数 == pages
-     pages = (count + size - 1)/size;
-     */
 }
 
 @end

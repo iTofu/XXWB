@@ -41,6 +41,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
+        
         // 初始化工具条
         [self setupStatusToolBar];
         

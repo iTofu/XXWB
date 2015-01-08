@@ -46,6 +46,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
         self.image = [UIImage resizedImageWithName:@"timeline_card_top_background"];
         self.highlightedImage = [UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
         

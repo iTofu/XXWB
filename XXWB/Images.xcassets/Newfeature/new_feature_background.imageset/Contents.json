@@ -11,6 +11,10 @@
     },
     {
       "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
       "filename" : "new_feature_background-568h@2x.png",
       "unassigned" : true,
       "subtype" : "retina4",

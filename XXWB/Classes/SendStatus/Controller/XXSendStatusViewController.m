@@ -95,6 +95,7 @@
     // HUD
     [SVProgressHUD showWithStatus:@"正在发送" maskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setBackgroundColor:XXColor(246, 246, 246)];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [self.view endEditing:YES];
     
@@ -112,11 +113,13 @@
        parameters:pars
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
               
               [self dismissViewControllerAnimated:YES completion:nil];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               [SVProgressHUD showErrorWithStatus:@"网络连接失败"];
+              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
               
               XXLog(@"error: %@", error.localizedDescription);
           }];
