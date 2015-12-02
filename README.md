@@ -9,20 +9,19 @@
 
 ## 介绍
 
-仅供学习和参考哈！
+仅供学习和参考哈！欢迎 star 和 fork！
 
-目前只高仿了首页，暂无继续的计划，欢迎 fork 继续开发！
+这是微博在 2014 年底的样式，目前只高仿了新浪微博的首页，暂无继续的计划，欢迎 fork 继续开发！
 
-如果你愿意，给一个本项目的链接和本人的著名“Leo”就行了，哈哈！
+如果你愿意，给一个本人的署名“Leo”和本项目的链接 (https://github.com/LeoiOS/XXWB) 就行了，哈哈！
 
 另外，如果你有任何建议和意见，请点击 [Issure](https://github.com/LeoiOS/XXWB/issues/new)！
 
 
-````objc
-在 XXCONST.h 文件中，你可以更换成自己的 OAuth2 认证相关的 Authorize 及 Token。
+> 在 XXCONST.h 文件中，你可以更换成自己的 OAuth2 认证相关的 Authorize 及 Token。
+>
+> 如果你没有，点击 [新浪微博开放平台](http://open.weibo.com/) 申请即可！
 
-如果你没有，点击 [新浪微博开放平台](http://open.weibo.com/) 申请即可！
-````
 
 
 
