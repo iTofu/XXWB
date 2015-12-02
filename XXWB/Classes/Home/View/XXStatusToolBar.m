@@ -161,16 +161,14 @@
  */
 - (void)setupBtn:(UIButton *)btn count:(int)count
 {
-    if (count) {
-        NSString *title = nil;
-        if (count < 10000) {
-            title = [NSString stringWithFormat:@"%d", count];
-        } else {
-            title = [NSString stringWithFormat:@"%.1f万", count / 10000.0];
-            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
-        }
-        [btn setTitle:title forState:UIControlStateNormal];
+    NSString *title = nil;
+    if (count < 10000) {
+        title = [NSString stringWithFormat:@"%d", count];
+    } else {
+        title = [NSString stringWithFormat:@"%.1f万", count / 10000.0];
+        title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
     }
+    [btn setTitle:title forState:UIControlStateNormal];
 }
 
 @end
