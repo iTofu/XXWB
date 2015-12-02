@@ -28,6 +28,22 @@
 
 
 
+## 实现功能
+
+1. 新浪微博 OAuth2 认证流程！
+2. 完整项目框架：UITabBarController + UINavigationController + UIViewController！
+3. 高度自定义 XXTabBarController，实现了 tabBar 的全部自定义。tabBar 中间添加 ➕ 按钮，可随意调整图片位置和大小，随意调整文字位置和大小，并利用 KVO 实现自定义 badgeValue 跟随 tabBarItem.badgeValue 值变化而变化！
+4. 实现首页数据的全部展示，包括微博的用户头像、用户名、会员等级图标、时间、发送来源、正文、附图、转发数、评论数、点赞数等！
+5. 微博发送时间进行人性化显示，如：刚刚、1分钟前、1小时前、昨天等！
+6. 微博附图实现九宫格布局，并可点开查看大图！
+7. 实现微博转发显示！
+8. 借鉴 MVVM 思想，实现 cell 的动态高度！
+9. 实现下拉刷新和上拉加载功能！
+10. 实现首页 UI 的高仿！不能更像！
+11. 实现发微博功能！
+
+
+
 ## 预览
 
 ![XXWB](https://github.com/LeoiOS/XXWB/blob/master/demo01.png)
@@ -42,7 +58,7 @@
 
 ## 鸣谢
 
-本项目使用了如下框架：
+本项目中使用到了如下框架：
 
 * [MJRefresh](https://github.com/CoderMJLee/MJRefresh)
 * [MJExtension](https://github.com/CoderMJLee/MJExtension)
