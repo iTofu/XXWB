@@ -24,6 +24,19 @@
 
 
 
+## 鸣谢
+
+本项目使用了如下框架：
+
+* [MJRefresh](https://github.com/CoderMJLee/MJRefresh)
+* [MJExtension](https://github.com/CoderMJLee/MJExtension)
+* [MJPhotoBrowser](https://github.com/CoderMJLee)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* [SDWebImage](https://github.com/rs/SDWebImage)
+* [SVProgressHUD](https://github.com/TransitApp/SVProgressHUD)
+
+
+
 
 ## 免责声明
 
