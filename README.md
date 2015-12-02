@@ -1,6 +1,8 @@
 # XXWB
 当初学习开发时写的小小微博，高仿新浪微博首页！仅供学习哈！
 
+![XXWB](https://github.com/LeoiOS/XXWB/blob/master/XXWBDemo.gif)
+
 ````objc
 心有猛虎，细嗅蔷薇。
 ````
